@@ -18,35 +18,29 @@ namespace FSMCalculator
 
         [DllImport("FSMCalculatorMachineDLL.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern void DeleteContext(IntPtr ctx);
+
         public CalculatorBackend()
         {
             _ctx = CreateContext();
             if (_ctx == IntPtr.Zero)
-                throw new Exception("Failed to create backend context.");
+                throw new Exception("Failed to create FSM context.");
         }
 
-        public void HandleInput(string token)
+        public void Send(string token)
         {
-            if (_ctx == IntPtr.Zero) throw new Exception("Backend context not initialized.");
+            if (_ctx == IntPtr.Zero)
+                throw new ObjectDisposedException(nameof(CalculatorBackend));
+
             HandleInput(_ctx, token);
         }
 
-        public string GetDisplay()
+        public string Display
         {
-            if (_ctx == IntPtr.Zero) return "0";
-            IntPtr ptr = GetDisplay(_ctx);
-            return Marshal.PtrToStringAnsi(ptr);
-        }
-
-        public void Clear()
-        {
-            HandleInput("C");
-        }
-
-        public string CalculateResult()
-        {
-            HandleInput("=");
-            return GetDisplay();
+            get
+            {
+                if (_ctx == IntPtr.Zero) return "0";
+                return Marshal.PtrToStringAnsi(GetDisplay(_ctx)) ?? "0";
+            }
         }
 
         public void Dispose()
