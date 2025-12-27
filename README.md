@@ -8,7 +8,7 @@
 ## Project Structure
 
 ```text
-FSM_Moore_Calculator/
+FSM_Moore_ِArithmetic_Engine/
 ├── Core/
 │   ├── Context/
 │   │   ├── Context.h
@@ -48,16 +48,20 @@ FSM_Moore_Calculator/
 ```
 
 
-# Moore FSM Calculator Project Documentation
+# Moore FSM Arithmetic Engine Project Documentation
 
 ## Project Overview
-The **Moore FSM Calculator** is a software implementation of a finite state machine (FSM) designed to perform simple arithmetic calculations.  
-This project simulates how a CPU control unit processes input using a **Moore machine approach**, where the outputs depend solely on the current state and not on the input.
 
-The main idea is to take academic topics such as **finite state machines**, **polymorphism**, and **object-oriented programming** and convert them into a real-world software application.  
-The calculator behaves according to well-defined states, transitions automatically, and produces the correct output for user input.
+The **Moore FSM Arithmetic Engine** is a software implementation of a finite state machine (FSM) designed to perform arithmetic calculations in a structured, state-driven way.  
+Inspired by concepts from **Computer Organization & Architecture (COA)**, it models how a CPU control unit interprets instructions and manages an **accumulator** to store intermediate results.
 
-This project demonstrates the practical application of computer science concepts and shows how abstract theories can be translated into a working system that handles dynamic input while maintaining a clean and maintainable codebase.
+Unlike a typical calculator, this engine behaves like a **hardware-style accumulator**, where each operation depends on the current state of the machine rather than just the input.  
+The final product is a fully functional **GUI calculator**, yet its underlying design is fundamentally different: it demonstrates how **hardware principles and FSM-based control logic** can be faithfully modeled in software, bridging academic theory with practical software engineering.
+
+The core idea is to transform academic topics such as **finite state machines**, **polymorphism**, and **object-oriented programming** into a real-world application.  
+The calculator operates according to well-defined states, transitions automatically, and produces correct results for user input.
+
+This project highlights the practical application of computer science concepts, showing how abstract theories can be translated into a working system that handles dynamic input while maintaining a **clean, maintainable, and extendable codebase**.
 
 ---
 
@@ -113,16 +117,18 @@ This design ensures the project is **maintainable, extendable, and professional*
 
 ---
 
-## States of the Calculator (State Diagram Overview)
-The calculator operates in **five main states**:
+## States of the Engine (State Diagram Overview)
 
-1. **Start (`clsS`):** The initial state. Waits for the first digit or a sign (+/-) and builds the first number.
-2. **Accumulate (`clsAC`):** Accumulates digits for the current number and handles operators or the equal sign.
-3. **OperatorWait (`clsOpWait`):** Waits for the user to enter the next number after an operator.
-4. **Compute (`clsCompute`):** Calculates the result when the equal sign is entered and prepares the system for the next operation.
-5. **Error (`clsError`):** Handles invalid input and allows reset via 'C' or 'c'.
+The arithmetic engine operates through **five main states**, each handling input differently and determining the next transition:
 
-Each state class handles input differently and returns the **next state enum**, which the context uses to perform transitions.
+1. **Start (`clsS`)** – The initial state. Waits for the first digit or a sign (+/-) and builds the first number.
+2. **Accumulate (`clsAC`)** – Accumulates digits for the current number and manages operators or the equal sign.
+3. **OperatorWait (`clsOpWait`)** – Awaits the next number input after an operator.
+4. **Compute (`clsCompute`)** – Performs the calculation when the equal sign is entered and prepares for the next operation.
+5. **Error (`clsError`)** – Handles invalid input and allows reset via 'C' or 'c'.
+
+Each state class returns the **next state enum**, which the context uses to perform deterministic transitions.
+
 
 ---
 
@@ -140,9 +146,9 @@ The `clsContext` class is the **core of the FSM**. It manages the current state,
 - `display` → Holds the string shown to the user.
 ---
 
-## Moore Calculator Diagram:
-![Moore FSM Diagram](MooreCalculatoreMachine2.drawio.png)
-### The Previous Diagram illustrates the Moore State Machine Calculator
+## Moore Arithmetic Engine Diagram:
+![Moore Arithmetic Engine](MooreCalculatoreMachine2.drawio.png)
+### The Previous Diagram illustrates the Moore State Machine Arithmetic Engine
 
 ## Key Methods
 
@@ -179,7 +185,7 @@ The `clsContext` class is the **core of the FSM**. It manages the current state,
   - Updates the display
 This design ensures clean separation of responsibilities and safe memory management.
 ---
-## Tansition Activity Diagram:
+## Transition Activity Diagram:
 ![Transition Activity Diagram](Transition_State_Occurence.png)
 # Activity Diagram Explanation:
 
@@ -250,7 +256,7 @@ display = buildingnumber.empty() ? "0" : buildingnumber;
 ```
 ## Transition is Completed 
 
-## This project implements a Finite State Machine (FSM)-based calculator using a C++ DLL and a C# GUI. 
+## This project implements a Finite State Machine (FSM)-based Arithmetic Engine using a C++ DLL and a C# GUI. 
 C++ DLL → contains the FSM calculator logic 
 C# GUI → user interface that dynamically calls 
 the DLL functions 
@@ -261,7 +267,7 @@ the DLL functions
 ## Files
 - **dllmain.cpp** → Standard Windows DLL entry point  
 - **csFSMLinkercpp.h** → Declares exported functions for C#  
-- **csFSMLinkercpp.cpp** → FSM calculator logic  
+- **csFSMLinkercpp.cpp** → FSM Engine logic  
 
 ## Why DLL is Important
 1. Allows the C++ FSM logic to be reused by C# GUI  
