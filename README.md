@@ -1,4 +1,4 @@
-# FSM Moore Calculator Project
+# FSM Moore Arithmetic Engine Project
 
 ## Important Note
 **Main.cpp** contains standalone test cases for validating the FSM calculator logic and is **not part of the DLL build**.
