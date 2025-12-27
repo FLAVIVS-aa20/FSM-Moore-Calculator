@@ -44,7 +44,6 @@ FSM_Moore_Calculator/
 ├── Main.cpp
 ├── MooreCalculatorMachine2.drawio.png
 ├── Transition State Occurence.png
-├── Readme.pdf
 └── README.md
 ```
 
