@@ -27,20 +27,20 @@ FSM_Moore_Calculator/
 │   │   └── Error.cpp
 │   │
 │   └── FSM_Interface/
-│       ├── AbstractClass.h
-│       ├── AbstractClass.cpp
-│       ├── StateType.h
-│       └── StateType.cpp
-│
+│   |   ├── AbstractClass.h
+│   |   ├── AbstractClass.cpp
+│   |   ├── StateType.h
+│   |   └── StateType.cpp
+│   |
 │   └── Linkers/
-│       ├── csFSMLinkercpp.h
-│       └── csFSMLinlercpp.cpp
-│
+│   |   ├── csFSMLinkercpp.h
+│   |   └── csFSMLinlercpp.cpp
+│   |
 ├── FSM_Calculator_GUI/
 │   ├── calculatorbackend.cs
 │   ├── CalculatorForm.cs
 │   └── Program.cs
-│
+│   |
 ├── Main.cpp
 ├── MooreCalculatorMachine2.drawio.png
 ├── Transition State Occurence.png
